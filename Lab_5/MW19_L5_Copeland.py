@@ -1,6 +1,11 @@
 # Name: T. Emerson Copeland     MW19
 # COSC1336, Lab 5, startup structure for menu-driven loop
 
+import random
+
+def print_break():
+    print("\n=========================================\n")
+
 def intro(): 
     def f1_greeting():    
         print("Greetings Earth People")
@@ -129,12 +134,12 @@ def tip_table(): # Part 2. Get startup code from tip_table.py (provided)
         else:
             print("\n===  You must enter a valid number!  ===")
 
-    print("\n=========================================")
+    print_break()
     display_total_due(bill_with_tax, 0.10, TAX_RATE)
     display_total_due(bill_with_tax, 0.15, TAX_RATE)
     display_total_due(bill_with_tax, 0.20, TAX_RATE)
     display_total_due(bill_with_tax, 0.25, TAX_RATE)
-    print("=========================================\n")
+    print_break()
 
 def add_one(number):
     modified = number + 1
@@ -166,15 +171,58 @@ def scope(): # Part 3. Get startup code from scope.py (provided)
 
 
 def sort(): # Part 4. No startup code provided. See instructions.
-    pass
+
+    ## Start of sorting function
+    def sort_list(*args):
+        """This is a bubble sort function where numbers are provided as an arbitrary length number of arguments and then cast to a list to be sorted"""
+        sort_list = list(args)
+
+        def greater_than(num1, num2):
+            if(num1 > num2):
+                return True
+            else:
+                return False
+
+        def swap(num1, num2):
+            return(num2, num1)
+        
+        while True:
+            
+            isSorted=True
+            
+            for i in range(len(sort_list)-1):
+                if(greater_than(sort_list[i],sort_list[i+1])):
+                    sort_list[i],sort_list[i+1] = swap(sort_list[i], sort_list[i+1])
+                    isSorted=False
+                
+            if isSorted:
+                break
+        
+        return sort_list
+    ## End of sorting function
+
+    run_10_times = 0
+    print_break()
+
+    while (run_10_times < 10):
+        num1 = random.randint(1,100)
+        num2 = random.randint(1,100)
+        num3 = random.randint(1,100)
+
+        print(f"The random numbers [{num1}, {num2}, {num3}] sort to: {sort_list(num1,num2,num3)}\n")
+        run_10_times += 1
+
+    print_break()
+
 
 def ACC(): # Part 5. Extra Credit: no startup code provided. See instructions.
     pass
 
 def main():
-    print('Hello. This is cosc1336 lab 5 on functions.')
+    print('\nHello. This is cosc1336 lab 5 on functions.\n')
     while True:
-        option =  input('Enter choice: 0)intro 1)launch 2)tip table 3)scope 4)sort 5)ACC 6)quit? ')
+        print_break()
+        option =  input('Please choose from the following options:\n\n0) Intro\n1) Launch\n2) Tip Table\n3) Scope\n4) Sort\n5) ACC\n6) Quit\n\nYour choice: ')
         option=option.lower()
         if option == '0':
             intro()    
