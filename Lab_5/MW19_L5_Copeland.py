@@ -1,12 +1,15 @@
 # Name: T. Emerson Copeland     MW19
-# COSC1336, Lab 5, startup structure for menu-driven loop
+# COSC1336, Lab 5
 
 import random
 
 def print_break():
     print("\n=========================================\n")
 
+## Intro to functions
 def intro(): 
+    print_break()
+    
     def f1_greeting():    
         print("Greetings Earth People")
 
@@ -17,7 +20,7 @@ def intro():
         print(f"The sum of {num1} and {num2} is {num1 + num2}")
 
     def f4_average(num1,num2):
-        return(f"The average is {(num1+num2)/2}")
+        return(f"The average of {num1} and {num2} is {(num1+num2)/2}")
 
     def f5_minmax(num1,num2):
         if(num1 > num2):
@@ -83,7 +86,7 @@ def is_a_number(num):
 
     return isNumber
 
-def launch(): # Part 1. Get startup code from launch.py (provided)
+def launch(): # Part 1
 
     def fill_booster(num):
         print(f"Fill booster fuel tank {num}.")
@@ -116,7 +119,7 @@ def launch(): # Part 1. Get startup code from launch.py (provided)
     print("Thank you. Keep looking up!")
 
 
-def tip_table(): # Part 2. Get startup code from tip_table.py (provided)
+def tip_table(): # Part 2
     def display_total_due(bill_with_tax, tip_rate, tax_rate):
         bill_without_tax = bill_with_tax / (1 + tax_rate)
         tip = bill_without_tax * tip_rate
@@ -155,7 +158,7 @@ def less_100(number):
     modified = number - 100
     print(f"      At the top of less 100: number={number}, modified={modified}")
 
-def scope(): # Part 3. Get startup code from scope.py (provided)
+def scope(): # Part 3
 
     while True:
         number = input("\nPlease enter a number: ")
@@ -170,11 +173,11 @@ def scope(): # Part 3. Get startup code from scope.py (provided)
     print(f"\nAt the bottom of scope: number={number}\n")
 
 
-def sort(): # Part 4. No startup code provided. See instructions.
+def sort(): # Part 4
 
     ## Start of sorting function
     def sort_list(*args):
-        """This is a bubble sort function where numbers are provided as an arbitrary length number of arguments and then cast to a list to be sorted"""
+        """This is a bubble sort function where the numbers to be sorted are provided as an arbitrary length number of arguments and then cast to a list"""
         sort_list = list(args)
 
         def greater_than(num1, num2):
@@ -215,8 +218,10 @@ def sort(): # Part 4. No startup code provided. See instructions.
     print_break()
 
 
-def ACC(): # Part 5. Extra Credit: no startup code provided. See instructions.
-    pass
+def ACC(): # Part 5
+    print_break()
+    print("This function has not been completed")
+    print_break()
 
 def main():
     print('\nHello. This is cosc1336 lab 5 on functions.\n')
@@ -244,5 +249,228 @@ def main():
 
 main()    
 
-# Test all options in one, last test run, and paste your output below:
 
+# Test Output:
+
+# hpd15@LAPTOP-P4P9TKIA MINGW64 ~/Desktop/ACC Classes/Spring 2019/fundamentals_of_programming_1/Lab_5 (master)
+# $ python MW19_L5_Copeland.py
+
+# Hello. This is cosc1336 lab 5 on functions.
+
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 0
+
+# =========================================
+
+# Greetings Earth People
+# Hello Emerson
+# The sum of 4 and 6 is 10
+# The average of 10 and 20 is 15.0
+# {'min': 5, 'max': 10}
+# {'min': 10, 'max': 25}
+# My name is T. Emerson Copeland
+# {'Last': 'Copeland', 'First': 'T. Emerson'}
+# 321
+# 982
+# Austin, TX
+# (o)       (o)
+
+#      <=>
+
+#   \\-----//
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 1
+# Press enter to begin the launch sequence...
+# This program launches a rocket.
+# start launch sequence
+# Fill booster fuel tank 1.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Fill booster fuel tank 2.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Fill booster fuel tank 3.
+#   open valve
+#   pre-freeze tank
+#   attach filler hose
+#   pressurize fuel supply
+#   fill tank
+#   secure and seal shutoff valve
+# Start engine 1
+#   ignition sequence start
+#   start ignition spark generator
+#   open fuel valve
+#   verify ignition temperature
+#   stop ignition spark generator
+#   engine 1 is started
+# Start engine 2
+#   ignition sequence start
+#   start ignition spark generator
+#   open fuel valve
+#   verify ignition temperature
+#   stop ignition spark generator
+#   engine 2 is started
+# 3, 2, 1, 0, BLASTOFF!!!
+# Thank you. Keep looking up!
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 2
+
+# Enter your total bill with tax: $10.82
+
+# =========================================
+
+# Total due with  10% tip: $ 11.82
+# Total due with  15% tip: $ 12.32
+# Total due with  20% tip: $ 12.82
+# Total due with  25% tip: $ 13.32
+
+# =========================================
+
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 3
+
+# Please enter a number: 25
+
+# At the top of scope: number=25
+#   At the top of add one: number=25, modified=26
+#     At the top of times ten: number=26, modified=260
+#       At the top of less 100: number=260, modified=160
+
+# At the bottom of scope: number=25
+
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 4
+
+# =========================================
+
+# The random numbers [3, 79, 53] sort to: [3, 53, 79]
+
+# The random numbers [69, 31, 50] sort to: [31, 50, 69]
+
+# The random numbers [72, 6, 77] sort to: [6, 72, 77]
+
+# The random numbers [81, 79, 87] sort to: [79, 81, 87]
+
+# The random numbers [71, 60, 90] sort to: [60, 71, 90]
+
+# The random numbers [54, 71, 89] sort to: [54, 71, 89]
+
+# The random numbers [89, 68, 17] sort to: [17, 68, 89]
+
+# The random numbers [62, 81, 82] sort to: [62, 81, 82]
+
+# The random numbers [53, 85, 63] sort to: [53, 63, 85]
+
+# The random numbers [42, 66, 25] sort to: [25, 42, 66]
+
+
+# =========================================
+
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 5
+
+# =========================================
+
+# This function has not been completed
+
+# =========================================
+
+
+# =========================================
+
+# Please choose from the following options:
+
+# 0) Intro
+# 1) Launch
+# 2) Tip Table
+# 3) Scope
+# 4) Sort
+# 5) ACC
+# 6) Quit
+
+# Your choice: 6
+
+# Goodbye
+
+# hpd15@LAPTOP-P4P9TKIA MINGW64 ~/Desktop/ACC Classes/Spring 2019/fundamentals_of_programming_1/Lab_5 (master)
+# $
