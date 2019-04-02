@@ -5,6 +5,37 @@ def print_break():
     print("\n=========================================\n")
 
 
+# Function to convert a number in text form such as 'three hundred' to an int
+def text2int(textnum, numwords={}):
+    if not numwords:
+      units = [
+        "zero", "one", "two", "three", "four", "five", "six", "seven", "eight",
+        "nine", "ten", "eleven", "twelve", "thirteen", "fourteen", "fifteen",
+        "sixteen", "seventeen", "eighteen", "nineteen",
+      ]
+
+      tens = ["", "", "twenty", "thirty", "forty", "fifty", "sixty", "seventy", "eighty", "ninety"]
+
+      scales = ["hundred", "thousand", "million", "billion", "trillion"]
+
+      numwords["and"] = (1, 0)
+      for idx, word in enumerate(units):    numwords[word] = (1, idx)
+      for idx, word in enumerate(tens):     numwords[word] = (1, idx * 10)
+      for idx, word in enumerate(scales):   numwords[word] = (10 ** (idx * 3 or 2), 0)
+
+    current = result = 0
+    for word in textnum.split():
+        if word not in numwords:
+          raise Exception("Illegal word: " + word)
+
+        scale, increment = numwords[word]
+        current = current * scale + increment
+        if scale > 100:
+            result += current
+            current = 0
+
+    return result + current
+
 # Part 1
 def is_a_prime(num):
     isPrime = True
@@ -110,7 +141,12 @@ def sum_file(file_name):
         infile = open(file_name, "r")
 
         for line in infile:
-            line = float(line)
+            try:
+                line = float(line)
+            except ValueError:
+                line = line.rstrip("\n")
+                line = text2int(line)
+
             file_total += line
 
     except Exception as err:
@@ -146,46 +182,6 @@ menu()
 
 
 ## Test Output:
-# hpd15@LAPTOP-P4P9TKIA MINGW64 ~/Desktop/ACC Classes/Spring 2019/fundamentals_of_programming_1/Lab_6 (master)
-# $ python MW19_L6_Copeland.py
-
-# =========================================
-
-# Please choose what you'd like to perform:
-
-# 1) 1000 Primes
-# 2) State Census Data
-# 3) Sum of a File
-# Q) Quit
-
-# Your choice: 1
-
-# Your list of prime numbers was saved to the file: 'MW19_L6_Copeland_1000Primes.txt'
-
-# =========================================
-
-# Please choose what you'd like to perform:
-
-# 1) 1000 Primes
-# 2) State Census Data
-# 3) Sum of a File
-# Q) Quit
-
-# Your choice: q
-
-# =====     Invalid Selection!     =====
-
-# =========================================
-
-# Please choose what you'd like to perform:
-
-# 1) 1000 Primes
-# 2) State Census Data
-# 3) Sum of a File
-# Q) Quit
-
-# Your choice: q
-
 # hpd15@LAPTOP-P4P9TKIA MINGW64 ~/Desktop/ACC Classes/Spring 2019/fundamentals_of_programming_1/Lab_6 (master)
 # $ python MW19_L6_Copeland.py
 
@@ -268,9 +264,12 @@ menu()
 
 # Please enter the name (including the file extension) of the file you'd like to open: data2.txt
 
-# =====     Error!     =====
+# =========================================
 
-# The following error occurred: could not convert string to float: 'three hundred\n'
+# The sum of all data in data2.txt is 6,600.66
+
+# =========================================
+
 
 # =========================================
 
